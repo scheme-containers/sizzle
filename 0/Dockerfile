@@ -9,7 +9,7 @@ ADD https://raw.githubusercontent.com/lambdaconservatory/scheme-release-archive/
 RUN sha256sum sizzle.tar.gz && sha256sum -c checksum
 RUN mkdir sizzle && tar -C sizzle --strip-components 1 -xf sizzle.tar.gz
 WORKDIR /build/sizzle
-COPY lvalue.patch ./
+COPY lvalue.patch lvalue.patch
 RUN patch -p 1 <lvalue.patch
 RUN ./configure
 RUN make
